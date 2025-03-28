@@ -11,8 +11,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 def handle_docs_photo(message):
     sender = f"{message.from_user.first_name} (@{message.from_user.username})"
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-    caption = f"📦 Расходная накладная\nОтправил: {sender}\nДата: {timestamp}"
-
+    caption = f"📄 Расходная накладная\nОтправил: {sender}\nДата: {timestamp}"
     file_id = message.photo[-1].file_id
     bot.send_photo(CHAT_ID, file_id, caption=caption)
 
