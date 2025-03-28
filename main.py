@@ -14,5 +14,7 @@ def handle_docs_photo(message):
     caption = f"📄 Расходная накладная\nОтправил: {sender}\nДата: {timestamp}"
     file_id = message.photo[-1].file_id
     bot.send_photo(CHAT_ID, file_id, caption=caption)
-
+    @bot.message_handler(commands=['id'])
+def send_chat_id(message):
+    bot.send_message(message.chat.id, f"Ваш chat_id: {message.chat.id}")
 bot.polling(none_stop=True)
