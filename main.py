@@ -1,12 +1,9 @@
 import os
 import telebot
 from datetime import datetime
-
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 CHAT_ID = os.environ.get("CHAT_ID")
-
 bot = telebot.TeleBot(BOT_TOKEN)
-
 @bot.message_handler(content_types=['photo'])
 def handle_docs_photo(message):
     sender = f"{message.from_user.first_name} (@{message.from_user.username})"
